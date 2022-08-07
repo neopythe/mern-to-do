@@ -1,14 +1,22 @@
 {
-  "name": "root",
+  "name": "mern-to-do",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\" "
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neopythe/mern-to-do.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neopythe/mern-to-do/issues"
+  },
+  "homepage": "https://github.com/neopythe/mern-to-do#readme",
   "devDependencies": {
     "concurrently": "^7.3.0"
   }
