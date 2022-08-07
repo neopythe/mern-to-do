@@ -6,6 +6,6 @@ router.get('/', function (req, res) {
   res.redirect('/todos')
 })
 
-router.get('/todos', require('./routes/todosRoute'))
+router.get('/todos', require('./routes/todos'))
 
 module.exports = router
