@@ -7,6 +7,6 @@ router.get('/', function (req, res) {
   res.redirect('/todos')
 })
 
-router.get('/todos', todos.index)
+router.route('/todos').get(todos.index).post(todos.createTodo)
 
 module.exports = router
