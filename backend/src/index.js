@@ -1,19 +1,18 @@
 const express = require('express')
-const dotenv = require('dotenv') // load environment variables from .env file
-const cors = require('cors') // enable cross-origin resource sharing
-const morgan = require('morgan') // log requests - improved debugging logic
+const dotenv = require('dotenv')
+const cors = require('cors')
+const morgan = require('morgan')
 const mongoose = require('mongoose')
 
-dotenv.config()
+dotenv.config() // load environment variables
 
 const todoRoutes = require('./routes/todos')
 
 const app = express()
 
-app.use(express.json())
-
-app.use(cors())
-app.use(morgan('dev'))
+app.use(express.json()) // parse JSON data
+app.use(cors()) // enable cross-origin resource sharing
+app.use(morgan('dev')) // log requests
 app.use('/', todoRoutes)
 
 const port = process.env.PORT || 5000
