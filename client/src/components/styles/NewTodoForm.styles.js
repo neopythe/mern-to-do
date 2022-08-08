@@ -7,4 +7,7 @@ export const StyledFieldset = styled.fieldset`
   border: none;
   margin: 0;
   padding: 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.05rem;
 `
