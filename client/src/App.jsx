@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 
+import { TodoProvider } from './context/TodoContext'
+
 import NewTodoForm from './components/NewTodoForm'
 import readTodosRequest from './api/readTodosRequest'
 import TodoList from './components/TodoList'
@@ -14,10 +16,12 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      <NewTodoForm />
-      <TodoList todos={todos} />
-    </div>
+    <TodoProvider>
+      <div className="App">
+        <NewTodoForm />
+        <TodoList todos={todos} />
+      </div>
+    </TodoProvider>
   )
 }
 
