@@ -1,10 +1,12 @@
+import { StyledFieldset } from './styles/NewTodoForm.styles'
+
 export default function NewTodoForm() {
   return (
     <form>
-      <fieldset>
+      <StyledFieldset>
         <label htmlFor="new-todo">new to-do</label>
         <input type="text" name="new-todo" />
-      </fieldset>
+      </StyledFieldset>
     </form>
   )
 }

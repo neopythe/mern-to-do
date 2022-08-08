@@ -1,13 +1,4 @@
-import styled from 'styled-components'
-
-const StyledTodo = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  background-color: white;
-  padding: 0 10px;
-  color: red;
-`
+import { StyledTodo } from './styles/Todo.styles'
 
 export default function Todo({ text, completed }) {
   return (
