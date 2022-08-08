@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import readTodosRequest from './api/readTodosRequest'
+import TodoList from './components/TodoList'
 
 import './App.css'
 
@@ -13,11 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      {todos.map((todo) => (
-        <div key={todo._id}>
-          {todo.text} - {String(todo.completed)}
-        </div>
-      ))}
+      <TodoList todos={todos} />
     </div>
   )
 }
