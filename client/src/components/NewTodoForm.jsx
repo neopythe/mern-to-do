@@ -1,12 +1,46 @@
-import { StyledFieldset } from './styles/NewTodoForm.styles'
+import { useContext, useState } from 'react'
+
+import TodoContext from '../context/TodoContext'
+
+import { StyledFieldset, StyledForm } from './styles/NewTodoForm.styles'
 
 export default function NewTodoForm() {
+  const { createTodo } = useContext(TodoContext)
+
+  const [text, setText] = useState('')
+  const [btnDisabled, setBtnDisabled] = useState(true)
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    if (text.trim().length) {
+      createTodo({ text })
+    }
+    setText('')
+    setBtnDisabled(true)
+  }
+
+  const handleTextChange = ({ target: { value } }) => {
+    if (!value.trim()) {
+      setBtnDisabled(true)
+    } else {
+      setBtnDisabled(false)
+    }
+    setText(value)
+  }
+
   return (
-    <form>
+    <StyledForm onSubmit={handleSubmit}>
       <StyledFieldset>
-        <label htmlFor="new-todo">new to-do</label>
-        <input type="text" name="new-todo" />
+        {/* <label htmlFor="new-todo">new to-do</label> */}
+        <input
+          onChange={handleTextChange}
+          type="text"
+          name="new-todo"
+          placeholder="new to-do"
+          value={text}
+        />
       </StyledFieldset>
-    </form>
+      <button disabled={btnDisabled}>Submit</button>
+    </StyledForm>
   )
 }

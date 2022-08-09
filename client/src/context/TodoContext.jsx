@@ -20,7 +20,7 @@ export const TodoProvider = ({ children }) => {
   // create todo
   const createTodo = async (newTodo) => {
     const { data } = await database.post('/todos', JSON.stringify(newTodo))
-    setTodos([data, ...todos])
+    setTodos([...todos, data])
   }
 
   // read todos
