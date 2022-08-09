@@ -1,7 +1,12 @@
 import { createContext, useEffect, useState } from 'react'
 import axios from 'axios'
 
-const API_URL = `http://localhost:5000`
+const API_URL = 'http://localhost:5000'
+
+const database = axios.create({
+  baseURL: API_URL,
+  headers: { 'Content-Type': 'application/json' },
+})
 
 const TodoContext = createContext()
 
@@ -16,19 +21,13 @@ export const TodoProvider = ({ children }) => {
 
   // create todo
   const createTodo = async (newTodo) => {
-    const { data } = await axios.post(
-      `${API_URL}/todos`,
-      JSON.stringify(newTodo),
-      {
-        headers: { 'Content-Type': 'application/json' },
-      }
-    )
+    const { data } = await database.post('/todos', JSON.stringify(newTodo))
     setTodos([data, ...todos])
   }
 
   // read todos
   const readTodos = async () => {
-    const { data } = await axios.get(`${API_URL}/todos`)
+    const { data } = await database.get('/todos')
     setTodos(data)
     setIsLoading(false)
   }
@@ -40,12 +39,9 @@ export const TodoProvider = ({ children }) => {
 
   // update todo
   const updateTodo = async (id, todo, updatedTodo) => {
-    const { data } = await axios.put(
-      `${API_URL}/todos/${id}`,
-      JSON.stringify(updatedTodo),
-      {
-        headers: { 'Content-Type': 'application/json' },
-      }
+    const { data } = await database.put(
+      `/todos/${id}`,
+      JSON.stringify(updatedTodo)
     )
     setTodos(
       todos.map((todo) => (todo.id === id ? { ...todo, ...data } : todo))
@@ -56,7 +52,7 @@ export const TodoProvider = ({ children }) => {
   // delete todo
   const deleteTodo = async (id) => {
     if (window.confirm('Are you sure you want to delete?')) {
-      await axios.delete(`${API_URL}/todos/${id}`)
+      await database.delete(`/todos/${id}`)
       setTodos(todos.filter((todo) => todo.id !== id))
     }
   }
