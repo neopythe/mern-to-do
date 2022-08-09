@@ -8,17 +8,17 @@ export default function NewTodoForm() {
   const { createTodo } = useContext(TodoContext)
 
   const [text, setText] = useState('')
-  const [btnDisabled, setBtnDisabled] = useState(true)
+  const [buttonDisabled, setButtonDisabled] = useState(true)
 
   const handleSubmit = (event) => {
     event.preventDefault()
     text.trim().length && createTodo({ text })
     setText('')
-    setBtnDisabled(true)
+    setButtonDisabled(true)
   }
 
   const handleTextChange = ({ target: { value } }) => {
-    value.trim() ? setBtnDisabled(false) : setBtnDisabled(true)
+    value.trim() ? setButtonDisabled(false) : setButtonDisabled(true)
     setText(value)
   }
 
@@ -34,7 +34,7 @@ export default function NewTodoForm() {
           value={text}
         />
       </StyledFieldset>
-      <button disabled={btnDisabled}>Submit</button>
+      <button disabled={buttonDisabled}>Submit</button>
     </StyledForm>
   )
 }
