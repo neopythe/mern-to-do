@@ -12,19 +12,13 @@ export default function NewTodoForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    if (text.trim().length) {
-      createTodo({ text })
-    }
+    text.trim().length && createTodo({ text })
     setText('')
     setBtnDisabled(true)
   }
 
   const handleTextChange = ({ target: { value } }) => {
-    if (!value.trim()) {
-      setBtnDisabled(true)
-    } else {
-      setBtnDisabled(false)
-    }
+    value.trim() ? setBtnDisabled(false) : setBtnDisabled(true)
     setText(value)
   }
 
