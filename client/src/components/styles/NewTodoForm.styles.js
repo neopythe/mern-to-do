@@ -15,19 +15,16 @@ export const StyledFieldset = styled.fieldset`
     height: 2rem;
     padding-left: 1rem;
   }
+
+  & input:focus {
+    outline: none;
+    border: 1px solid #fff;
+    box-shadow: 0 0 5px #fff;
+  }
 `
 
 export const StyledForm = styled.form`
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-
-  & button:hover {
-    border: 1px solid #aaa;
-  }
-
-  & button:disabled {
-    cursor: default;
-    border: 1px solid transparent;
-  }
 `

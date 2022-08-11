@@ -1,8 +1,10 @@
+import { StyledButton } from './styles/Button.styles'
+
 export default function Button({ children, isDisabled, type }) {
   return (
-    <button type={type} disabled={isDisabled}>
+    <StyledButton type={type} disabled={isDisabled}>
       {children}
-    </button>
+    </StyledButton>
   )
 }
 
