@@ -35,7 +35,12 @@ export const StyledTodoContainer = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
   padding: 1rem;
   background-color: #696969;
   color: #fff;
+
+  & p {
+    word-break: break-word;
+  }
 `

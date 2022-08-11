@@ -36,10 +36,10 @@ export default function Todo({ todo }) {
       <p>{text}</p>
       <IconContainer>
         <label onClick={() => editTodo(todo)}>
-          <AiFillEdit />
+          <AiFillEdit size="1.2em" />
         </label>
         <label onClick={() => deleteTodo(_id)}>
-          <TiDelete />
+          <TiDelete size="1.2em" />
         </label>
       </IconContainer>
     </StyledTodoContainer>
