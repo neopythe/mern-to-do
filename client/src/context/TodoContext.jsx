@@ -51,7 +51,7 @@ export const TodoProvider = ({ children }) => {
   const deleteTodo = async (id) => {
     if (window.confirm('Are you sure you want to delete?')) {
       await database.delete(`/todos/${id}`)
-      setTodos(todos.filter((todo) => todo.id !== id))
+      setTodos(todos.filter((todo) => todo._id !== id))
     }
   }
 

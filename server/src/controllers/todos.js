@@ -34,5 +34,5 @@ module.exports.updateTodo = catchAsync(async (req, res) => {
 module.exports.deleteTodo = catchAsync(async (req, res) => {
   const { id } = req.params
   await Todo.findByIdAndDelete(id)
-  res.redirect('/todos')
+  res.send(id)
 })
