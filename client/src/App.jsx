@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import { TodoProvider } from './context/TodoContext'
 
 import NewTodoForm from './components/NewTodoForm'
-import TodoDetails from './components/TodoDetails'
 import TodoList from './components/TodoList'
 
 import './App.css'
@@ -24,7 +23,6 @@ function App() {
               </>
             }
           />
-          <Route exact path="/todos/:id" element={<TodoDetails />} />
         </Routes>
       </div>
     </TodoProvider>
