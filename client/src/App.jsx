@@ -35,9 +35,8 @@ export default function App() {
     <TodoProvider>
       <AppContainer>
         <Routes>
-          <Route exact path="/" element={<Navigate to="/todos" />} />
+          <Route path="/" element={<Navigate to="/todos" />} />
           <Route
-            exact
             path="/todos"
             element={
               <>
@@ -46,6 +45,7 @@ export default function App() {
               </>
             }
           />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AppContainer>
     </TodoProvider>
