@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AiFillEdit } from 'react-icons/ai'
 import { TiDelete } from 'react-icons/ti'
 
@@ -13,16 +13,17 @@ import {
 } from './styles/Todo.styles'
 
 export default function Todo({ todo }) {
-  const { _id, text: todoText, completed } = todo
+  const { _id, text: todoText, completed: todoCompleted } = todo
 
   const { deleteTodo, updateTodo, todoEdit, editTodo } = useContext(TodoContext)
 
   const [text, setText] = useState(todoText)
+  const [completed, toggleCompleted] = useState(todoCompleted)
   const [buttonDisabled, setButtonDisabled] = useState(false)
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    text.trim().length && updateTodo(_id, todo, { _id, text, completed })
+    text.trim().length && updateTodo({ _id, text, completed })
     setButtonDisabled(true)
   }
 
@@ -31,9 +32,27 @@ export default function Todo({ todo }) {
     setText(value)
   }
 
+  const toggleComplete = () => {
+    toggleCompleted((prevState) => !prevState)
+    updateTodo({ _id, text, completed })
+  }
+
+  // useEffect(() => {
+  //   updateTodo({ _id, text, completed }, [])
+  // })
+
+  const completedStyles = { backgroundColor: 'green' }
+
   const todoDisplay = (
-    <StyledTodoContainer className="bg-slate-800">
-      <p>{text}</p>
+    <StyledTodoContainer
+      style={completed ? completedStyles : { backgroundColor: 'red' }}
+      className="bg-slate-800"
+    >
+      <div className="w-full text-start">
+        <p onClick={toggleComplete} className="block py-4">
+          {text}
+        </p>
+      </div>
       <IconContainer>
         <label onClick={() => editTodo(todo)}>
           <AiFillEdit size="1.2em" />
