@@ -1,10 +1,22 @@
-import { StyledTodo } from './styles/Todo.styles'
+import { AiFillEdit } from 'react-icons/ai'
+import { TiDelete } from 'react-icons/ti'
 
-export default function Todo({ text, completed }) {
+import { IconContainer, StyledTodo } from './styles/Todo.styles'
+
+export default function Todo({ todo }) {
+  const { _id, text, completed } = todo
+
   return (
     <StyledTodo>
       <p>{text}</p>
-      <p>{String(completed)}</p>
+      <IconContainer>
+        <label>
+          <AiFillEdit />
+        </label>
+        <label>
+          <TiDelete />
+        </label>
+      </IconContainer>
     </StyledTodo>
   )
 }
