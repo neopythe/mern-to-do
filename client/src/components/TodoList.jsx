@@ -19,7 +19,7 @@ export default function TodoList() {
       <CircleLoader loading={isLoading} color="#fff" />
       <StyledUnorderedList>
         {todos.map((todo) => (
-          <Todo key={todo._id} text={todo.text} completed={todo.completed} />
+          <Todo key={todo._id} todo={todo} />
         ))}
       </StyledUnorderedList>
     </StyledTodoList>
