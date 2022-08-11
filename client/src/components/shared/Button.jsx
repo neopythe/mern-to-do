@@ -1,10 +1,12 @@
-import { StyledButton } from './styles/Button.styles'
-
 export default function Button({ children, isDisabled, type }) {
   return (
-    <StyledButton type={type} disabled={isDisabled}>
+    <button
+      type={type}
+      disabled={isDisabled}
+      className="btn btn-sm w-full sm:w-fit lowercase"
+    >
       {children}
-    </StyledButton>
+    </button>
   )
 }
 
