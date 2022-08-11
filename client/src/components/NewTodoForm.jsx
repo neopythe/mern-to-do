@@ -2,6 +2,8 @@ import { useContext, useState } from 'react'
 
 import TodoContext from '../context/TodoContext'
 
+import Button from './shared/Button'
+
 import { StyledFieldset, StyledForm } from './styles/NewTodoForm.styles'
 
 export default function NewTodoForm() {
@@ -34,7 +36,9 @@ export default function NewTodoForm() {
           value={text}
         />
       </StyledFieldset>
-      <button disabled={buttonDisabled}>Submit</button>
+      <Button type={'submit'} isDisabled={buttonDisabled}>
+        Submit
+      </Button>
     </StyledForm>
   )
 }

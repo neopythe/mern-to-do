@@ -1,13 +1,12 @@
-export default function Button({ children, version, type, isDisabled }) {
+export default function Button({ children, isDisabled, type }) {
   return (
-    <button type={type} disabled={isDisabled} className={`btn btn-${version}`}>
+    <button type={type} disabled={isDisabled}>
       {children}
     </button>
   )
 }
 
 Button.defaultProps = {
-  version: 'primary',
   type: 'button',
   isDisabled: false,
 }
