@@ -5,12 +5,10 @@ import { TodoProvider } from './context/TodoContext'
 import NewTodoForm from './components/NewTodoForm'
 import TodoList from './components/TodoList'
 
-import './App.css'
-
-function App() {
+export default function App() {
   return (
     <TodoProvider>
-      <div className="App">
+      <>
         <Routes>
           <Route exact path="/" element={<Navigate to="/todos" />} />
           <Route
@@ -24,9 +22,7 @@ function App() {
             }
           />
         </Routes>
-      </div>
+      </>
     </TodoProvider>
   )
 }
-
-export default App
