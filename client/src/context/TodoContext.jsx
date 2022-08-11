@@ -36,21 +36,22 @@ export const TodoProvider = ({ children }) => {
   }
 
   // update todo
-  const updateTodo = async (id, todo, updatedTodo) => {
+  const updateTodo = async (newTodo) => {
+    const { _id } = newTodo
     const { data } = await database.put(
-      `/todos/${id}`,
-      JSON.stringify(updatedTodo)
+      `/todos/${_id}`,
+      JSON.stringify(newTodo)
     )
     setTodos(
-      todos.map((todo) => (todo.id === id ? { ...todo, ...data } : todo))
+      todos.map((todo) => (todo._id === _id ? { ...todo, ...data } : todo))
     )
-    setTodoEdit({ todo, edit: false })
+    setTodoEdit({ newTodo, edit: false })
   }
 
   // delete todo
-  const deleteTodo = async (id) => {
-    await database.delete(`/todos/${id}`)
-    setTodos(todos.filter((todo) => todo._id !== id))
+  const deleteTodo = async (_id) => {
+    await database.delete(`/todos/${_id}`)
+    setTodos(todos.filter((todo) => todo._id !== _id))
   }
 
   return (
