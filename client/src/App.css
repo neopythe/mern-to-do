@@ -1,7 +1,19 @@
 #root {
-  max-width: 1280px;
-  width: 60%;
+  max-width: 600px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+@media only screen and (min-width: 600px) {
+  #root {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #root {
+    width: 60%;
+  }
 }

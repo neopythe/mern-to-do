@@ -13,6 +13,7 @@ export const IconContainer = styled.div`
 
 export const StyledForm = styled.form`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
@@ -22,12 +23,19 @@ export const StyledForm = styled.form`
 
   & input {
     height: 2rem;
+    width: 100%;
+    padding: 0;
+    border: 1px solid transparent;
   }
 
   & input:focus {
     outline: none;
     border: 1px solid #fff;
     box-shadow: 0 0 10px #fff;
+  }
+
+  @media only screen and (min-width: 600px) {
+    flex-direction: row;
   }
 `
 
