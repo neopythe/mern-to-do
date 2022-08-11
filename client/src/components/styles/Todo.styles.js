@@ -24,7 +24,7 @@ export const StyledForm = styled.form`
   & input {
     height: 2rem;
     width: 100%;
-    padding: 0;
+    padding: 0 0 0 1rem;
     border: 1px solid transparent;
   }
 

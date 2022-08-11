@@ -5,7 +5,11 @@ export const StyledTodoList = styled.section`
   justify-content: center;
   margin: 1rem 0;
   padding: 0.5rem;
-  background-color: #fff;
+  background-color: #2b2a33;
+  max-height: 80vh;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #696969 #1a1a1a;
 `
 
 export const StyledUnorderedList = styled.ul`
