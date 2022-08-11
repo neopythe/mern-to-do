@@ -14,9 +14,12 @@ export default function TodoList() {
     return <p>No todos yet</p>
   }
 
-  return (
-    <StyledTodoList>
+  return isLoading ? (
+    <div className="flex justify-center my-24">
       <CircleLoader loading={isLoading} color="#fff" />
+    </div>
+  ) : (
+    <StyledTodoList>
       <StyledUnorderedList>
         {todos.map((todo) => (
           <Todo key={todo._id} todo={todo} />

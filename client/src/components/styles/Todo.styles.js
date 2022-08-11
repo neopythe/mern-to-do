@@ -11,6 +11,8 @@ export const IconContainer = styled.div`
   }
 `
 
+const br = '0.75rem'
+
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -18,7 +20,7 @@ export const StyledForm = styled.form`
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background-color: #696969;
+  background-color: #d2d4d8;
   color: #fff;
 
   & input {
@@ -26,6 +28,9 @@ export const StyledForm = styled.form`
     width: 100%;
     padding: 0 0 0 1rem;
     border: 1px solid transparent;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    color: #1e293b;
   }
 
   & input:focus {
@@ -45,8 +50,19 @@ export const StyledTodoContainer = styled.li`
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background-color: #696969;
   color: #fff;
+
+  &:only-of-type {
+    border-radius: ${br} 0 0 ${br} !important;
+  }
+
+  &:first-of-type {
+    border-radius: ${br} 0 0 0rem;
+  }
+
+  &:last-of-type {
+    border-radius: 0 0 0 ${br};
+  }
 
   & p {
     word-break: break-word;

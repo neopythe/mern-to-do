@@ -32,7 +32,7 @@ export default function Todo({ todo }) {
   }
 
   const todoDisplay = (
-    <StyledTodoContainer>
+    <StyledTodoContainer className="bg-slate-800">
       <p>{text}</p>
       <IconContainer>
         <label onClick={() => editTodo(todo)}>

@@ -38,3 +38,18 @@ export const StyledForm = styled.form`
     flex-direction: row;
   }
 `
+
+export const StyledInput = styled.input`
+  height: 2rem;
+  width: 100%;
+  padding: 0;
+  padding-left: 1rem;
+  border: 1px solid transparent;
+  color: #1e293b;
+
+  &:focus {
+    outline: none;
+    border: 1px solid #fff;
+    box-shadow: 0 0 5px #fff;
+  }
+`

@@ -7,6 +7,8 @@ import NewTodoForm from './components/NewTodoForm'
 import TodoList from './components/TodoList'
 
 const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   max-width: 600px;
   width: 100%;
   max-height: 100%;

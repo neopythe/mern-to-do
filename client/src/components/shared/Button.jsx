@@ -3,7 +3,7 @@ export default function Button({ children, isDisabled, type }) {
     <button
       type={type}
       disabled={isDisabled}
-      className="btn btn-sm w-full sm:w-fit lowercase"
+      className="btn btn-sm w-full sm:w-fit rounded-r-none rounded-bl-lg rounded-tl-none sm:rounded-l-none lowercase"
     >
       {children}
     </button>

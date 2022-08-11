@@ -4,7 +4,7 @@ import TodoContext from '../context/TodoContext'
 
 import Button from './shared/Button'
 
-import { StyledFieldset, StyledForm } from './styles/NewTodoForm.styles'
+import { StyledInput } from './styles/NewTodoForm.styles'
 
 export default function NewTodoForm() {
   const { createTodo } = useContext(TodoContext)
@@ -25,20 +25,24 @@ export default function NewTodoForm() {
   }
 
   return (
-    <StyledForm onSubmit={handleSubmit}>
-      <StyledFieldset>
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-wrap sm:flex-nowrap sm:flex-row justify-between gap-2 mb-8"
+    >
+      <fieldset className="flex w-full">
         {/* <label htmlFor="new-todo">new to-do</label> */}
-        <input
+        <StyledInput
           onChange={handleTextChange}
           type="text"
           name="new-todo"
           placeholder="new to-do"
           value={text}
+          className="w-full sm:w-fit h-8 rounded-tl-lg sm:rounded-bl-lg pl-4"
         />
-      </StyledFieldset>
+      </fieldset>
       <Button type={'submit'} isDisabled={buttonDisabled}>
         Submit
       </Button>
-    </StyledForm>
+    </form>
   )
 }
