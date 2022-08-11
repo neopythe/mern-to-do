@@ -51,6 +51,7 @@ export const StyledTodoContainer = styled.li`
   gap: 1rem;
   padding: 1rem;
   color: #fff;
+  height: 4rem;
 
   &:only-of-type {
     border-radius: ${br} 0 0 ${br} !important;
