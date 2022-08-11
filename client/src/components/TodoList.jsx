@@ -11,7 +11,7 @@ export default function TodoList() {
   const { todos, isLoading } = useContext(TodoContext)
 
   if (!isLoading && (!todos || todos.length === 0)) {
-    return <p>No todos yet</p>
+    return <p>no todos yet</p>
   }
 
   return isLoading ? (
