@@ -28,7 +28,7 @@ module.exports.updateTodo = catchAsync(async (req, res) => {
     ...req.body,
   })
   await todo.save()
-  res.redirect(`/todos/${todo._id}`)
+  res.send(todo)
 })
 
 module.exports.deleteTodo = catchAsync(async (req, res) => {
