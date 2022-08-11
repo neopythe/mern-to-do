@@ -20,5 +20,5 @@ export const StyledUnorderedList = styled.ul`
   width: 100%;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #696969 #1a1a1a;
+  scrollbar-color: #1e293b #d2d4d8;
 `
