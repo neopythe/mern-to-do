@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { TodoProvider } from './context/TodoContext'
 
+import NavBar from './components/NavBar'
 import NewTodoForm from './components/NewTodoForm'
 import TodoList from './components/TodoList'
 
@@ -33,6 +34,7 @@ const AppContainer = styled.div`
 export default function App() {
   return (
     <TodoProvider>
+      <NavBar />
       <AppContainer>
         <Routes>
           <Route path="/" element={<Navigate to="/todos" />} />
