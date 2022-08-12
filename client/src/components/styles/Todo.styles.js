@@ -22,6 +22,8 @@ export const StyledForm = styled.form`
   padding: 1rem;
   background-color: #d2d4d8;
   color: #fff;
+  border-top-left-radius: ${br};
+  border-bottom-left-radius: ${br};
 
   & input {
     height: 2rem;
@@ -52,6 +54,17 @@ export const StyledTodoContainer = styled.li`
   padding: 1rem;
   color: #fff;
   height: 4rem;
+  transition: all 1s;
+
+  ${({ isCompleted }) =>
+    isCompleted &&
+    `
+    background-color: #626977;
+
+    & p {
+      text-decoration: line-through;
+    }
+  `}
 
   &:only-of-type {
     border-radius: ${br} 0 0 ${br} !important;

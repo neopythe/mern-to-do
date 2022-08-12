@@ -32,7 +32,7 @@ export default function Todo({ todo }) {
   }
 
   const toggleCompletion = async () => {
-    toggleIsCompleted((prevState) => !prevState)
+    toggleIsCompleted((isCompleted) => !isCompleted)
   }
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function Todo({ todo }) {
   }, [isCompleted])
 
   const todoDisplay = (
-    <StyledTodoContainer className="bg-slate-800">
+    <StyledTodoContainer isCompleted={isCompleted} className="bg-slate-800">
       <div className="w-full text-start">
         <p onClick={toggleCompletion} className="block py-4">
           {text}
