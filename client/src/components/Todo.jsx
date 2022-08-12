@@ -13,37 +13,36 @@ import {
 } from './styles/Todo.styles'
 
 export default function Todo({ todo }) {
-  const { _id, text: todoText, completed: todoCompleted } = todo
+  const { _id, text: todoText, completed } = todo
 
   const { deleteTodo, updateTodo, todoEdit, editTodo } = useContext(TodoContext)
 
   const [text, setText] = useState(todoText)
-  const [completed, toggleCompleted] = useState(todoCompleted)
-  const [buttonDisabled, setButtonDisabled] = useState(false)
+  const [isCompleted, toggleIsCompleted] = useState(completed)
+  const [buttonIsDisabled, toggleButtonIsDisabled] = useState(false)
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    text.trim().length && updateTodo({ _id, text, completed })
-    setButtonDisabled(true)
+    text.trim().length && updateTodo({ _id, text, completed: isCompleted })
   }
 
   const handleTextChange = ({ target: { value } }) => {
-    value.trim() ? setButtonDisabled(false) : setButtonDisabled(true)
+    value.trim() ? toggleButtonIsDisabled(false) : toggleButtonIsDisabled(true)
     setText(value)
   }
 
-  const toggleComplete = async () => {
-    toggleCompleted((prevState) => !prevState)
+  const toggleCompletion = async () => {
+    toggleIsCompleted((prevState) => !prevState)
   }
 
   useEffect(() => {
-    updateTodo({ _id, text, completed })
-  }, [completed])
+    updateTodo({ _id, text, completed: isCompleted })
+  }, [isCompleted])
 
   const todoDisplay = (
     <StyledTodoContainer className="bg-slate-800">
       <div className="w-full text-start">
-        <p onClick={toggleComplete} className="block py-4">
+        <p onClick={toggleCompletion} className="block py-4">
           {text}
         </p>
       </div>
@@ -61,7 +60,7 @@ export default function Todo({ todo }) {
   const todoForm = (
     <StyledForm onSubmit={handleSubmit}>
       <input onChange={handleTextChange} type="text" value={text} />
-      <Button type={'submit'} isDisabled={buttonDisabled}>
+      <Button type={'submit'} isDisabled={buttonIsDisabled}>
         Save
       </Button>
     </StyledForm>
