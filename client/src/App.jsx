@@ -15,6 +15,7 @@ const AppContainer = styled.div`
   max-height: 100%;
   margin: 0 auto;
   padding: 2rem;
+  padding-top: 4rem;
   text-align: center;
   overflow: hidden;
 
