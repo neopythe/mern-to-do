@@ -40,10 +40,6 @@ export const StyledForm = styled.form`
     border: 1px solid #fff;
     box-shadow: 0 0 10px #fff;
   }
-
-  @media only screen and (min-width: 600px) {
-    flex-direction: row;
-  }
 `
 
 export const StyledTodoContainer = styled.li`
