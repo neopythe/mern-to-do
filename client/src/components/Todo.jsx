@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AiFillEdit } from 'react-icons/ai'
 import { TiDelete } from 'react-icons/ti'
 
@@ -40,25 +40,20 @@ export default function Todo({ todo }) {
     updateTodo({ _id, text, completed })
   }, [completed])
 
-  const completedStyles = { backgroundColor: 'green' }
-
   const todoDisplay = (
-    <StyledTodoContainer
-      style={completed ? completedStyles : { backgroundColor: 'red' }}
-      className="bg-slate-800"
-    >
+    <StyledTodoContainer className="bg-slate-800">
       <div className="w-full text-start">
         <p onClick={toggleComplete} className="block py-4">
           {text}
         </p>
       </div>
       <IconContainer>
-        <label onClick={() => editTodo(todo)}>
+        <div onClick={() => editTodo(todo)}>
           <AiFillEdit size="1.2em" />
-        </label>
-        <label onClick={() => deleteTodo(_id)}>
+        </div>
+        <div onClick={() => deleteTodo(_id)}>
           <TiDelete size="1.2em" />
-        </label>
+        </div>
       </IconContainer>
     </StyledTodoContainer>
   )
