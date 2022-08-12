@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { AiFillEdit } from 'react-icons/ai'
 import { TiDelete } from 'react-icons/ti'
 
@@ -32,14 +32,13 @@ export default function Todo({ todo }) {
     setText(value)
   }
 
-  const toggleComplete = () => {
+  const toggleComplete = async () => {
     toggleCompleted((prevState) => !prevState)
-    updateTodo({ _id, text, completed })
   }
 
-  // useEffect(() => {
-  //   updateTodo({ _id, text, completed }, [])
-  // })
+  useEffect(() => {
+    updateTodo({ _id, text, completed })
+  }, [completed])
 
   const completedStyles = { backgroundColor: 'green' }
 
