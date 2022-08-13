@@ -27,7 +27,7 @@ export default function NewTodoForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-wrap sm:flex-nowrap sm:flex-row justify-between gap-2 mb-8"
+      className="flex flex-wrap sm:flex-nowrap sm:flex-row justify-between gap-2 my-8"
     >
       <fieldset className="flex w-full">
         {/* <label htmlFor="new-todo">new to-do</label> */}
